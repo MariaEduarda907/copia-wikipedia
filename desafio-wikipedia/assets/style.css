@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header, .logo{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px;
+    gap: 10px;
+}
+
+.logo h2 {
+    font-size: 1.5rem;
+}
+
+.img_logo{
+    width: 4rem;
+    max-width: 100%;
+    height: auto;
+}
+
+.search_input{
+    background-color: #cdcdcd42;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    width: 300px;
+    font-size: 1rem;
+}
+
+.search_button{
+    background-color: #cdcdcd42;
+    border: none;
+    border-radius: 50%;
+    padding: 8px 8px;
+    cursor: pointer;
+    color: #000000;
+    margin: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.search_button:hover{
+    background-color: #2b10011a;
+}
+
+ul { 
+    list-style: none; 
+    padding-left: 5px;
+}
+
+a {
+    color:#007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+h1, h2, p{
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.prsn-list li{
+    list-style-type: disc;
+    padding: 5px 0;
+}
+
+.content {
+    max-width: 1440px;
+    margin: auto;
+    grid-gap: 3rem;
+    display: grid;
+    gap: 3rem;
+    grid-template-areas: "sidebar main anchors";
+    grid-template-columns: minmax(0,15rem) minmax(0,2.5fr) minmax(0,15rem);
+    padding: 0 1rem;
+    border-top: solid 1px #cdcdcd;
+}
+
+.navbar {
+    border-right: solid 1px #cdcdcd;
+}
+
+.anchors {
+    border-left: solid 1px #cdcdcd;
+    padding-left: 1rem;
+}
+
+figure {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.cover{
+    width: 200px;
+    max-width: 100%;
+    margin-top: 60px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-shadow: 10px 10px #00000023;
+}
+
+.img_book{
+    width: 12rem;
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    min-height: 40px;
+    border-top: solid 1px #cdcdcd;
+    text-align: center;
+    align-content: center;
+}
+
+/* Tablet e Telas Médias (Ex: até 1024px) */
+@media (max-width: 1024px) {
+    .content {
+        /* Ajusta o grid para tablets: navegação lateral pode ser menor, ou se mover */
+        grid-template-areas: "navbar main"
+                             "anchors ."; /* Âncoras abaixo, ou em uma coluna */
+        grid-template-columns: minmax(0, 12rem) minmax(0, 2.5fr); /* Reduz a largura da navbar */
+        gap: 2rem; /* Reduz um pouco o gap */
+    }
+
+    .anchors {
+        /* Reset para não ter borda esquerda se estiver abaixo */
+        border-left: none;
+        padding-left: 0;
+        grid-area: anchors; /* Garante que ocupa a área definida no grid-template-areas */
+        text-align: center; /* Centraliza o conteúdo se for uma linha inteira */
+    }
+
+    .navbar {
+        padding-right: 0.5rem; /* Reduz padding */
+    }
+
+    main {
+        padding: 0 0.5rem; /* Reduz padding */
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.6rem; }
+    p { font-size: 1rem; }
+}
+
+/* Mobile e Telas Pequenas (Ex: até 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Coloca logo e busca em coluna */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search {
+        width: 90%; /* Busca ocupa mais largura */
+        justify-content: center; /* Centraliza os itens da busca */
+    }
+
+    .search_input {
+        width: calc(100% - 60px); /* Ajusta a largura do input para caber o botão */
+        max-width: 300px; /* Mantém uma largura máxima para não ficar muito largo em tablets */
+    }
+
+    .content {
+        display: flex; 
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 0.8rem;
+        border-top: none;
+    }
+
+    .navbar,
+    main,
+    .anchors {
+        width: 100%;
+        border: none; 
+        padding: 0;
+    }
+
+    /*telas pequenas*/
+    .navbar {
+        border-top: solid 1px #cdcdcd; 
+        padding-top: 1rem;
+    }
+
+    .anchors {
+        border-top: solid 1px #cdcdcd;
+        padding-top: 1rem;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.4rem; }
+    p { font-size: 0.95rem; }
+
+    .cover {
+        width: 150px;
+        margin-top: 2rem;
+    }
+
+    figure {
+        margin: 1.5rem 0;
+    }
+}
